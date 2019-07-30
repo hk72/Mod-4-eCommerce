@@ -2,10 +2,9 @@ import React from 'react'
 import CartItems from './CartItems'
 import { Button } from 'react-bootstrap'
 import CheckOutForm from './CheckOutForm'
-import Nav from './Home.js'
-//import ShowDetails from './ShowDetails'
-import Nav from './Home.js'
 
+
+import Row from 'react-bootstrap/Row'
 
 
 export default  class Cart  extends React.Component {
@@ -115,13 +114,11 @@ export default  class Cart  extends React.Component {
                 )
     }
     else{
-        shown = (
-        <div>
-            <Nav/>
-            <h3> My Cart items</h3>
+        shown = (<div>
+            <h3> My Cart items: ${this.state.total}</h3>
             <h3><Button onClick={() => this.clearCart()}  variant="outline-danger" >Empty Cart</Button> </h3> 
             
-            
+            <Row>
                 {items.map(item => {
                     return(
                     <div>
@@ -130,15 +127,15 @@ export default  class Cart  extends React.Component {
                     </div> 
                     )
                 })}
-            
-                <h3>Total:${this.state.total} </h3>
+            </Row>
+                
 
          </div>)
 
     }
      return(
         <div>
-        <Nav/>
+       
             {shown}
         </div>
         )
